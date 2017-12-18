@@ -8,9 +8,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="index.php"><i class="fa fa-circle-o"></i>General</a></li>
-            <li ><a href="dulces.php"><i class="fa fa-circle-o"></i>Dulces</a></li>
-            <li ><a href="pasteles.php"><i class="fa fa-circle-o"></i>Pasteles</a></li>
+            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i>General</a></li>
+            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i>Dulces</a></li>
+            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i>Pasteles</a></li>
            
           </ul>
         </li>
