@@ -281,7 +281,7 @@
       </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
-     <?php include "./barramenu.php" ?>
+      <?php include "./barramenu.php" ?>
     </section>
     <!-- /.sidebar -->
   </aside>
@@ -298,7 +298,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Inventario de Dulces</h3>
+              <h3 class="box-title">Responsive Hover Table</h3>
 
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -321,9 +321,9 @@
                   <th style="width:10%"></th>
                 </tr>
                 <?php 
-                  include './conexion.php';
-           $consulta=$mysqli->query("select * from dulces ")or die($mysqli->error);
-            while ( $fila=mysqli_fetch_array($consulta)) {
+                //  include './conexion.php';
+           // $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
+           // while ( $fila=mysqli_fetch_array($consulta)) {
                            # code...
                        ?>
                 <tr>
@@ -347,7 +347,7 @@
 
                </i>  </a></td>
                 </tr>
-                <?php } ?>
+                <?php// } ?>
               </table>
             </div>
             <!-- /.box-body -->
