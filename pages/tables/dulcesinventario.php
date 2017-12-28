@@ -327,21 +327,22 @@
                            # code...
                        ?>
                 <tr>
-                  <td><?php  ?></td>
-                  <td><?php  ?></td>
-                  <td><?php  ?></td>
-                  <td><?php  ?><span class="label label-success"></span></td>
+                  <td><?php  echo $fila['codigo'] ?></td>
+                  <td><?php echo $fila['nombre'] ?></td>
+                  <td><?php echo $fila['existencia'] ?></td>
+                  <td><?php echo $fila['precio'] ?>
+                  <span class="label label-success"></span></td>
                   <td> <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
-               data-target="#editar"
-               data-id="<?php echo $fila['id_cuenta'] ?>"
-               data-cuenta="<?php echo $fila['cuenta'] ?>"
-               data-nombre="<?php echo $fila['nombre'] ?>"
-               data-cantidad="<?php echo $fila['cantidad'] ?>">
+                                       data-target="#editar"
+                                       data-codigo="<?php echo $fila['codigo'] ?>"
+                                       data-nombre="<?php echo $fila['nombre'] ?>"
+                                       data-existencia="<?php echo $fila['existencia'] ?>"
+                                       data-precio="<?php echo $fila['precio'] ?>">
                <i class="fa fa-pencil"></i></a>
-                <a href="#" class="btn btn-danger btn-xs btnEliminar" 
+                       <a href="#" class="btn btn-danger btn-xs btnEliminar" 
                                        data-toggle="modal"
                                        data-target="#eliminar"
-                                       data-id="<?php echo $fila['id_cuenta'] ?>"
+                                       data-codigo="<?php echo $fila['codigo'] ?>"
                                        data-nombre="<?php echo $fila['nombre'] ?>">
                <i class="fa fa-trash">
 
@@ -356,6 +357,103 @@
         </div>
       </div>
     </section>
+
+
+      <!-- eliminar-->
+       <!-- eliminar--> <!-- eliminar--> <!-- eliminar--> <!-- eliminar--> <!-- eliminar--> <!-- eliminar--> <!-- eliminar--> <!-- eliminar--> <!-- eliminar-->
+         <div id="eliminar" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form action="./codigos/eliminardulce.php" method="post">
+                <div class="modal-header">
+
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Eliminar Producto</h4>
+                  <input type="text" id="codigo" name="codigo">
+
+                </div>
+                <div class="modal-body" style="text-align: center">
+                  <p>Estas seguro de eliminar este producto?
+                    <br>
+                    <span  style="font-size:20px;" 
+                    id="nombreeliminar"></span> </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#eliminar">Eliminar</button>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+          <!-- eliminar-->
+            <!-- editar--> <!-- editar--> <!-- editar--> <!-- editar--> <!-- editar--> <!-- editar--> <!-- editar--> <!-- editar--> <!-- editar-->
+          <div id="editar" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form action="./codigos/editarcuenta.php" method="post">
+                  <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Editar información</h4>
+                    <input type="text" id="codigoeditar" name="codigoeditar">
+
+                  </div>  <div class="clearfix"></div>
+                  <div class="modal-body" style="text-align: center">
+
+                    <div class="item form-group" style="width:100%;margin-bottom: 20px;">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" >No de cuenta 
+                       <span class="required">*</span>
+                     </label>
+                     <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input  class="form-control col-md-7 col-xs-12" style="width:100%;" 
+                      data-inputmask="'mask' : '*-*-*-*-***-****-***'"
+                      name="cuenta" 
+                      id="cuentaeditar"
+                      placeholder="Número de la Cuenta" maxlength="20" minlength="20"
+                      type="text">
+                    </div>
+                  </div><br>
+                    <div class="clearfix"></div>
+
+                  <div class="item form-group" style="width:100%;margin-bottom: 20px;">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Nombre 
+                     <span class="required">*</span>
+                   </label>
+                   <div class="col-md-6 col-sm-6 col-xs-12"  >
+                    <input  class="form-control col-md-7 col-xs-12" style="width:100%;"
+                    name="nombre"
+                    placeholder="Nombre de la Cuenta"
+                    id="nombreeditar" type="text">
+                  </div>
+                </div><br>
+  <div class="clearfix"></div>
+
+                <div class="item form-group" style="width:100%;margin-bottom: 20px;">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" >Cantidad  
+                    <span class="required">*</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12" >
+                    <input  class="form-control col-md-7 col-xs-12" style="width:100%;" 
+                    name="cantidad"
+                    id="cantidadeditar" 
+                    placeholder="Cantidad de la Cuenta" type="number">
+                  </div>
+                </div>
+
+
+              </div><br>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#editar">Guardar</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+      <!-- editar-->
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -576,5 +674,27 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+
+<script type="text/javascript">
+
+  $(".btnEliminar").on('click',function(){
+   var id=$(this).data('id');
+   var nombre=$(this).data('nombre');
+   $("#idcuenta").val(id);
+   $("#nombreeliminar").text(nombre) ;   
+ });
+  $(".btnEditar").on('click',function(){
+   var id=$(this).data('id');
+   var cuenta=$(this).data('cuenta');
+   var nombre=$(this).data('nombre');
+   var cantidad=$(this).data('cantidad');
+   $("#idcuentaeditar").val(id);
+   $("#cuentaeditar").val(cuenta) ;   
+   $("#nombreeditar").val(nombre) ;   
+   $("#cantidadeditar").val(cantidad) ;   
+
+ });
+
+</script>
 </body>
 </html>
