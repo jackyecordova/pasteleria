@@ -114,7 +114,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Lista de venta</h3>
+              <h3 class="box-title">Lista de venta   <button type="button" class="btn btn-primary">Nueva venta</button></h3>
 
               <div class="box-tools">
                
@@ -132,13 +132,11 @@
                   <th style="width:1%;"></th>
                 </tr>
                 <tr>
-                  <td> 
-
-                  183</td>
-                  <td>John Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-success">Approved</span></td>
-                  <td>Bar.    </td>
+                  <td> <?php  ?></td>
+                  <td><?php  ?></td>
+                  <td><?php  ?></td>
+                  <td><?php  ?></td>
+                  <td> <span class="label label-success"><?php  ?></span>   </td>
                    <td> <a  class="btn btn-danger btn-xs btnEliminar" 
                                        data-toggle="modal"
                                        data-target="#eliminar"
@@ -160,11 +158,23 @@
         
 
               <div class="pad margin no-print">
-                    <div class="callout callout-info" style="margin-bottom: 0!important;">
+                    <div class="callout callout-success" style="margin-bottom: 0!important;">
                       <label> </label>
-                     <p class="pull-right" style="font-size:18px;"> Total: <?php      
+                     <p class="pull-right" style="font-size:18px;margin-right:3%;"> 
+
+                     <button type="button" class="btn btn-success  btnpagar" 
+                        style=" background: rgb(255, 255, 255);
+                        color: rgb(0, 166, 90);margin-right:100px;
+                                      "
+                                       data-toggle="modal"
+                                       data-target="#eliminar"
+                                       data-codigoeliminar="<?php echo $fila['codigo'] ?>"
+                                       data-nombreeliminar="<?php echo $fila['nombre'] ?>"
+                                        >Pagar</button>
+                      Total: <?php      
                       echo "1234";
-                    ?></p>
+                    ?>
+                    </p><br><p>.</p>
                     </div>
             </div>
                
