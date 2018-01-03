@@ -320,13 +320,14 @@ $venta=$mysqli->query("select MAX(idventa) AS id from ventadulce")or die($mysqli
 <script >
           $(document).ready(function(){
               $("#buscar").on('keyup',function(){ 
-                  $("#contenido").find("td").remove();            
+
+                  $("#contenido").find("td").remove();
+
                           $.ajax({
-                                  url: "../codigos/busqueda.php",
+                                  url: "../codigos/buscardulce.php",
                                   method:"POST",
                                   data:{ 
-                                    texto:$("#buscar").val(),
-                                    ?>
+                                    texto:$("#buscar").val()
                                   }
                           }).done(function(respuesta){
                                   $(div).find("td").append(respuesta);
