@@ -42,7 +42,21 @@
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
-     
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+         
+          <li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>
+        </ul>
+      </div>
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
@@ -79,33 +93,98 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-       Inventario de Dulces
-        
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Forms</a></li>
-        <li class="active">General Elements</li>
-      </ol>
-    </section>
-
+   
     <!-- Main content -->
     <section class="content">
+
       <div class="row">
+
+
+      <div class="pad margin no-print">
+              <div class="callout callout-info" style="margin-bottom: 0!important;">
+                <h4> Pastelería y Dulcería</h4>
+               Sandra <a class="pull-right" style="font-size:18px;"><?php 
+//echo date("d-m-Y H:i:s");
+                
+                echo date('l, d M Y');
+              ?></a>
+              </div>
+      </div>
+        <div class="row" style="padding:10px;">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Lista de venta</h3>
+
+              <div class="box-tools">
+               
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-hover">
+                <tr>
+                  <th style="width:10%;">Código</th>
+                  <th>Producto</th>
+                  <th>Precio</th>
+                  <th>Cantidad</th>
+                  <th>Total</th>
+                  <th style="width:1%;"></th>
+                </tr>
+                <tr>
+                  <td> 
+
+                  183</td>
+                  <td>John Doe</td>
+                  <td>11-7-2014</td>
+                  <td><span class="label label-success">Approved</span></td>
+                  <td>Bar.    </td>
+                   <td> <a  class="btn btn-danger btn-xs btnEliminar" 
+                                       data-toggle="modal"
+                                       data-target="#eliminar"
+                                       data-codigoeliminar="<?php echo $fila['codigo'] ?>"
+                                       data-nombreeliminar="<?php echo $fila['nombre'] ?>">
+                                         <i class="fa fa-trash"></i>  </a></td>
+                </tr>
+               
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>
         <!-- left column -->
-        <div class="col-md-6">
+        <div class="col-md-12">
           <!-- general form elements -->
         
 
-
-         
+              <div class="pad margin no-print">
+                    <div class="callout callout-info" style="margin-bottom: 0!important;">
+                      <label> </label>
+                     <p class="pull-right" style="font-size:18px;"> Total: <?php      
+                      echo "1234";
+                    ?></p>
+                    </div>
+            </div>
+               
 
         </div>
         <!--/.col (left) -->
         <!-- right column -->
-        <div class="col-md-12">
+        
+        <!--/.col (right) -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+ <!--.................................................... -->
+  <div id="agregar" class="modal fade" role="dialog">
+    
+
+    <div class="col-md-12">
           <!-- Horizontal Form -->
           <div class="box box-info">
             <div class="box-header with-border">
@@ -167,7 +246,7 @@
               <div class="box-footer"> 
                 <button type="submit" class="btn btn-info pull-right" style="margin-left:1%;margin-right:45%;">Agregar</button>
             <button type="submit" class="btn btn-default pull-right" >   <a href="../tables/dulcesinventario.php"> Cancelar</a>
-</button>               
+              </button>               
               </div>
               <!-- /.box-footer -->
             </form>
@@ -177,12 +256,7 @@
          
           <!-- /.box -->
         </div>
-        <!--/.col (right) -->
-      </div>
-      <!-- /.row -->
-    </section>
-    <!-- /.content -->
-  </div>
+  </div> <!-- ....................................................................... -->
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
@@ -204,6 +278,8 @@
 <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
 <script src="../../bower_components/fastclick/lib/fastclick.js"></script>
+<!-- Slimscroll -->
+<script src="../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->

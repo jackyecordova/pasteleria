@@ -6,10 +6,22 @@
             <i class="fa fa-pie-chart"></i> <span>Principal</span>
           </a>
         </li>
+  <li class="active treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Venta</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="./pages/forms/dulceventa.php"><i class="fa fa-circle-o"></i> Dulces</a></li>
+            <li><a href="./pages/forms/pastelesventa.php"><i class="fa fa-circle-o"></i> Pasteles</a></li>
+          </ul>
+        </li>
 
         <li class="active treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Venta</span>
+            <i class="fa fa-dashboard"></i> <span>Inventario</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>

@@ -37,222 +37,7 @@
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Cerrar barra o abrir barra del menu-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-envelope-o"></i>
-              <span class="label label-success"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header"></li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li><!-- start message -->
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Jackye Córdova
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <p>Texto del mesaje?</p>
-                    </a>
-                  </li>
-                   <li><!-- start message -->
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Jackye Córdova
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <p>Texto del mesaje?</p>
-                    </a>
-                  </li>
-                  <!-- end message -->
-                  
-                
-                </ul>
-              </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
-            </ul>
-          </li>
-          <!-- Notifications: style can be found in dropdown.less -->
-          <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
-                      page and may cause design problems
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-red"></i> 5 new members joined
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-user text-red"></i> You changed your username
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="footer"><a href="#">View all</a></li>
-            </ul>
-          </li>
-          <!-- Tasks: style can be found in dropdown.less -->
-          <li class="dropdown tasks-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 9 tasks</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Design some buttons
-                        <small class="pull-right">20%</small>
-                      </h3>
-                      <div class="progress progress-xs">
-                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">20% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Create a nice theme
-                        <small class="pull-right">40%</small>
-                      </h3>
-                      <div class="progress progress-xs">
-                        <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">40% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Some task I need to do
-                        <small class="pull-right">60%</small>
-                      </h3>
-                      <div class="progress progress-xs">
-                        <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">60% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Make beautiful transitions
-                        <small class="pull-right">80%</small>
-                      </h3>
-                      <div class="progress progress-xs">
-                        <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">80% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                </ul>
-              </li>
-              <li class="footer">
-                <a href="#">View all tasks</a>
-              </li>
-            </ul>
-          </li>
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-                <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
-                </p>
-              </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
-        </ul>
-      </div>
+     
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
@@ -262,10 +47,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>Jackye Córdova</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -342,8 +127,8 @@
                        <a href="#" class="btn btn-danger btn-xs btnEliminar" 
                                        data-toggle="modal"
                                        data-target="#eliminar"
-                                       data-codigo="<?php echo $fila['codigo'] ?>"
-                                       data-nombre="<?php echo $fila['nombre'] ?>">
+                                       data-codigoeliminar="<?php echo $fila['codigo'] ?>"
+                                       data-nombreeliminar="<?php echo $fila['nombre'] ?>">
                <i class="fa fa-trash">
 
                </i>  </a></td>
@@ -364,12 +149,12 @@
          <div id="eliminar" class="modal fade" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content">
-              <form action="./codigos/eliminardulce.php" method="post">
+              <form action="../codigos/eliminardulce.php" method="post">
                 <div class="modal-header">
 
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                   <h4 class="modal-title">Eliminar Producto</h4>
-                  <input type="text" id="codigo" name="codigo">
+                  <input type="text" id="codigoeliminar" name="codigoeliminar">
 
                 </div>
                 <div class="modal-body" style="text-align: center">
@@ -392,29 +177,14 @@
           <div id="editar" class="modal fade" role="dialog">
             <div class="modal-dialog">
               <div class="modal-content">
-                <form action="./codigos/editarcuenta.php" method="post">
+                <form action="../codigos/editardulce.php" method="post">
                   <div class="modal-header">
 
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Editar información</h4>
-                    <input type="text" id="codigoeditar" name="codigoeditar">
+                    <h4 style="text-align:center;" class="modal-title">Editar información</h4>
+                    <input type="hidden" id="codigoeditar" name="codigoeditar">
 
-                  </div>  <div class="clearfix"></div>
-                  <div class="modal-body" style="text-align: center">
-
-                    <div class="item form-group" style="width:100%;margin-bottom: 20px;">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" >No de cuenta 
-                       <span class="required">*</span>
-                     </label>
-                     <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input  class="form-control col-md-7 col-xs-12" style="width:100%;" 
-                      data-inputmask="'mask' : '*-*-*-*-***-****-***'"
-                      name="cuenta" 
-                      id="cuentaeditar"
-                      placeholder="Número de la Cuenta" maxlength="20" minlength="20"
-                      type="text">
-                    </div>
-                  </div><br>
+               
                     <div class="clearfix"></div>
 
                   <div class="item form-group" style="width:100%;margin-bottom: 20px;">
@@ -424,21 +194,33 @@
                    <div class="col-md-6 col-sm-6 col-xs-12"  >
                     <input  class="form-control col-md-7 col-xs-12" style="width:100%;"
                     name="nombre"
-                    placeholder="Nombre de la Cuenta"
+                    placeholder="Nombre del producto"
                     id="nombreeditar" type="text">
                   </div>
                 </div><br>
   <div class="clearfix"></div>
 
                 <div class="item form-group" style="width:100%;margin-bottom: 20px;">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" >Cantidad  
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" >Existencia  
                     <span class="required">*</span>
                   </label>
                   <div class="col-md-6 col-sm-6 col-xs-12" >
                     <input  class="form-control col-md-7 col-xs-12" style="width:100%;" 
-                    name="cantidad"
-                    id="cantidadeditar" 
-                    placeholder="Cantidad de la Cuenta" type="number">
+                    name="existencia"
+                    id="existenciaeditar" 
+                    placeholder="Cantidad existente" type="number">
+                  </div>
+                </div>
+ <div class="clearfix"></div>
+                <div class="item form-group" style="width:100%;margin-bottom: 20px;">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" >Precio  
+                    <span class="required">*</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12" >
+                    <input  class="form-control col-md-7 col-xs-12" style="width:100%;" 
+                    name="precio"
+                    id="precioeditar" 
+                    placeholder="Precio del producto" type="text">
                   </div>
                 </div>
 
@@ -678,20 +460,20 @@
 <script type="text/javascript">
 
   $(".btnEliminar").on('click',function(){
-   var id=$(this).data('id');
-   var nombre=$(this).data('nombre');
-   $("#idcuenta").val(id);
+   var codigo=$(this).data('codigoeliminar');
+   var nombre=$(this).data('nombreeliminar');
+   $("#codigoeliminar").val(codigo);
    $("#nombreeliminar").text(nombre) ;   
  });
   $(".btnEditar").on('click',function(){
-   var id=$(this).data('id');
-   var cuenta=$(this).data('cuenta');
+   var codigo=$(this).data('codigo');
+   var existencia=$(this).data('existencia');
    var nombre=$(this).data('nombre');
-   var cantidad=$(this).data('cantidad');
-   $("#idcuentaeditar").val(id);
-   $("#cuentaeditar").val(cuenta) ;   
+   var precio=$(this).data('precio');
+   $("#codigoeditar").val(codigo);
+   $("#existenciaeditar").val(existencia) ;   
    $("#nombreeditar").val(nombre) ;   
-   $("#cantidadeditar").val(cantidad) ;   
+   $("#precioeditar").val(precio) ;   
 
  });
 
