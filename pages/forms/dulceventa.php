@@ -1,3 +1,12 @@
+<?php  include './conexion.php'; 
+
+$venta=$mysqli->query("select MAX(idventa) AS id from ventadulce")or die($mysqli->error);
+    $ventadulce=$venta->fetch_assoc();
+                  $noventa=$ventadulce['id'];
+                  $novent=$noventa +1;
+   
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -103,18 +112,24 @@
       <div class="pad margin no-print">
               <div class="callout callout-info" style="margin-bottom: 0!important;">
                 <h4> Pastelería y Dulcería</h4>
-               Sandra <a class="pull-right" style="font-size:18px;"><?php 
+               Sandra <a class="pull-right" style="font-size:18px; text-decoration:none;"><?php 
 //echo date("d-m-Y H:i:s");
                 
                 echo date('l, d M Y');
-              ?></a>
+              ?></a> <br>venta No_ <?php echo $novent ?>
               </div>
       </div>
         <div class="row" style="padding:10px;">
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Lista de venta   <button type="button" class="btn btn-primary">Nueva venta</button></h3>
+              <h3 class="box-title">Lista de venta </h3>  
+                                      <a  class="btn btn-success  btnagregar pull-right" 
+                                       data-toggle="modal"
+                                       data-target="#agregar"
+                                       data-codigoeliminar="<?php echo $fila['codigo'] ?>"
+                                       data-nombreeliminar="<?php echo $fila['nombre'] ?>">
+                                        Agregar Producto </a>
 
               <div class="box-tools">
                
@@ -131,10 +146,12 @@
                   <th>Total</th>
                   <th style="width:1%;"></th>
                 </tr>
+                <?php  $consulta=$mysqli->query("select * from detventadulce ")or die($mysqli->error);
+            while ( $fila=mysqli_fetch_array($consulta)) { ?>
                 <tr>
-                  <td> <?php  ?></td>
-                  <td><?php  ?></td>
-                  <td><?php  ?></td>
+                  <td> <?php echo $fila['codigo'] ?></td>
+                  <td><?php echo $fila['nombre'] ?></td>
+                  <td><?php echo $fila['precio'] ?></td>
                   <td><?php  ?></td>
                   <td> <span class="label label-success"><?php  ?></span>   </td>
                    <td> <a  class="btn btn-danger btn-xs btnEliminar" 
@@ -144,7 +161,7 @@
                                        data-nombreeliminar="<?php echo $fila['nombre'] ?>">
                                          <i class="fa fa-trash"></i>  </a></td>
                 </tr>
-               
+               <?php } ?>
               </table>
             </div>
             <!-- /.box-body -->
@@ -161,20 +178,29 @@
                     <div class="callout callout-success" style="margin-bottom: 0!important;">
                       <label> </label>
                      <p class="pull-right" style="font-size:18px;margin-right:3%;"> 
-
-                     <button type="button" class="btn btn-success  btnpagar" 
-                        style=" background: rgb(255, 255, 255);
-                        color: rgb(0, 166, 90);margin-right:100px;
+                      
+                              <button type="button" class="btn btn-success  btncancelar"
+                               style=" background: rgb(255, 255, 255);
+                                color: rgb(0, 166, 90);"
+                                     data-toggle="modal"
+                                       data-target="#eliminar"
+                                       data-codigoeliminar="<?php echo $fila['codigo'] ?>"
+                                       data-nombreeliminar="<?php echo $fila['nombre'] ?>">
+                               Cancelar</button>
+                                   <button type="button" class="btn btn-success  btnpagar" 
+                                      style=" background: rgb(255, 255, 255);
+                                      color: rgb(0, 166, 90);margin-right:100px;
                                       "
                                        data-toggle="modal"
                                        data-target="#eliminar"
                                        data-codigoeliminar="<?php echo $fila['codigo'] ?>"
                                        data-nombreeliminar="<?php echo $fila['nombre'] ?>"
                                         >Pagar</button>
-                      Total: <?php      
-                      echo "1234";
-                    ?>
-                    </p><br><p>.</p>
+                                        Total: <?php      
+                                        echo "1234";
+                                      ?>
+                              </p>
+                              <br><p>.</p>
                     </div>
             </div>
                
@@ -192,9 +218,7 @@
 
  <!--.................................................... -->
   <div id="agregar" class="modal fade" role="dialog">
-    
-
-    <div class="col-md-12">
+    <div class="col-md-6" style="margin-left: 25%;margin-top:10%;">
           <!-- Horizontal Form -->
           <div class="box box-info">
             <div class="box-header with-border">
@@ -202,60 +226,49 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" action="../codigos/nuevodulce.php" method="post">
+            <form class="form-horizontal" action="../codigos/ventadulce.php" method="post">
               <div class="box-body">
                 <div class="form-group"  style="margin-left:10%;">
-                  <label for="inputEmail3"      class="col-sm-2 control-label">Codigo</label>
+                  <label for="inputEmail3"      class="col-sm-2 control-label">Buscar</label>
 
                   <div class="col-sm-6">
-                    <input type="text" class="form-control"  placeholder="Codigo"
-                    id="codigo"
-                  name="codigo">
+                    <input type="text" class="form-control"  placeholder="Por Código o Por Nombre"
+                    id="buscar"
+                  name="buscar">
                   </div>
+                   <div class="col-sm-9">
+                   <table class="table table-hover" style="margin-top:10px;">
+                       <tr>
+                           <th style="width:10%;">Código</th>
+                           <th >Nombre</th>
+                           <th >Precio</th>
+                           <th class="pull-right" style="width:1%;"></th>
+                        </tr>
+                         <?php  $consulta=$mysqli->query("select * from dulces ")or die($mysqli->error);
+                      while ( $fila=mysqli_fetch_array($consulta)) { ?>
+                        <tr>
+                               <td> <?php echo $fila['codigo'] ?></td>
+                                <td><?php echo $fila['nombre'] ?></td>
+                                <td><?php echo $fila['precio'] ?></td>
+                            <td><button type="submit" class="btn btn-success btn-xs pull-right" style="margin-left:1%;margin-right:45%;"
+                                      data-codigoagregar="<?php echo $fila['codigo'] ?>"
+                                       data-nombreagregar="<?php echo $fila['nombre'] ?>"
+                                        data-precioagregar="<?php echo $fila['precio'] ?>">
+                            <a href="...php" style="text-decoration: none;color:white;"> <i class="fa fa-plus"></i></a>
+                              </button></td>
+                        </tr>
+                        <?php } ?>
+                    </table>
+                    </div>
                 </div>
-                <div class="form-group"  style="margin-left:10%;">
-                  <label for="text" class="col-sm-2 control-label">Nombre</label>
-
-                  <div class="col-sm-6">
-                    <input type="text" class="form-control"  placeholder="Nombre del Producto"
-                    id="nombre"
-                  name="nombre">
-                  </div>
-                </div>
-                <div class="form-group"  style="margin-left:10%;">
-                  <label for="text" class="col-sm-2 control-label">Existente</label>
-
-                  <div class="col-sm-6" >
-                    <input type="number" class="form-control" placeholder="Existencia del producto" 
-                    id="existente"
-                    name="existente">
-                  </div>
-                </div>
-                  <div class="form-group"  style="margin-left:10%;">
-                  <label for="text" class="col-sm-2 control-label">Precio</label>
-
-                  <div class="col-sm-6" >
-                    <input type="number" class="form-control" placeholder="Precio del Producto" 
-                    id="precio"
-                    name="precio">
-                  </div>
-                </div>
-
-                 <div class="form-group">
-                  <div class="col-sm-6" style="margin-left:40%;">
-                  <label for="exampleInputFile">Agregar imagen</label>
-                  <input type="file" id="exampleInputFile">
-
+               
                  
-                  </div>
-                </div>
-
               
               </div>
               <!-- /.box-body -->
               <div class="box-footer"> 
-                <button type="submit" class="btn btn-info pull-right" style="margin-left:1%;margin-right:45%;">Agregar</button>
-            <button type="submit" class="btn btn-default pull-right" >   <a href="../tables/dulcesinventario.php"> Cancelar</a>
+                <button type="submit" class="btn btn-success pull-right" style="margin-left:1%;margin-right:45%;"><a href="...php" style="text-decoration: none;color:white;">Agregar</a></button>
+            <button type="button" class="btn btn-default pull-right" data-dismiss="modal" >    Cancelar
               </button>               
               </div>
               <!-- /.box-footer -->
@@ -267,6 +280,7 @@
           <!-- /.box -->
         </div>
   </div> <!-- ....................................................................... -->
+
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
@@ -294,5 +308,57 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+
+
+
+<script >
+          $(document).ready(function(){
+              $("#buscar").on('keyup',function(){ 
+                  $("#tab_content1").find("td").remove();            
+                          $.ajax({
+                                  url: "./codigos/busqueda.php",
+                                  method:"POST",
+                                  data:{ 
+                                    texto:$("#buscar").val(),
+                                    ?>
+                                  }
+                          }).done(function(respuesta){
+                                  $(div).find("td").append(respuesta);
+                          });
+                  });
+              /* $(".btnstatus").on('click',function(){
+                 var id=$(this).data('id');
+                 var nombre=$(this).data('nombre');
+                 
+                 $("#idorden").val(id);
+                 $("#nombrest").text(nombre) ; 
+                });
+                $("#home-tab").on('click',function(){
+                    $("#tab_content1").show();
+                    $("#tab_content2").hide();
+                    $("#tab_content3").hide();
+                    $("#tab_content4").hide();
+                });
+                $("#profile-tab").on('click',function(){
+                  $("#tab_content2").show();
+                    $("#tab_content1").hide();
+                    $("#tab_content3").hide();
+                    $("#tab_content4").hide();
+                });
+                $("#profile-tab2").on('click',function(){
+                  $("#tab_content3").show();
+                    $("#tab_content2").hide();
+                    $("#tab_content1").hide();
+                    $("#tab_content4").hide();
+                });
+                $("#profile-tab3").on('click',function(){
+                  $("#tab_content4").show();
+                    $("#tab_content2").hide();
+                    $("#tab_content3").hide();
+                    $("#tab_content1").hide();
+                });*/
+          });
+  
+</script>
 </body>
 </html>
