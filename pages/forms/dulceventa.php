@@ -238,22 +238,28 @@ $venta=$mysqli->query("select MAX(idventa) AS id from ventadulce")or die($mysqli
                   </div>
                    <div class="col-sm-9">
                    <table class="table table-hover" style="margin-top:10px;">
-                       <tr>
+                       <tr >
                            <th style="width:10%;">Código</th>
-                           <th >Nombre</th>
-                           <th >Precio</th>
+                           <th style="width:50%;" >Nombre</th>
+                           <th style="width:10%;">Precio</th>
+                           <th  style="width:1%;">Cantidad</th>
                            <th class="pull-right" style="width:1%;"></th>
                         </tr>
                          <?php  $consulta=$mysqli->query("select * from dulces ")or die($mysqli->error);
                       while ( $fila=mysqli_fetch_array($consulta)) { ?>
-                        <tr>
+                        <tr id="contenido" name="contenido">
                                <td> <?php echo $fila['codigo'] ?></td>
                                 <td><?php echo $fila['nombre'] ?></td>
                                 <td><?php echo $fila['precio'] ?></td>
+                                <td><select style=" background: transparent;border: none;font-size: 14px;height: 30px;padding: 5px;width: 50px;">
+                                        <?php for ($i=1; $i <10 ; $i++) {
+                                       ?><option><?php echo $i ?></option><?php  }  ?>
+                                     </select></td>
                             <td><button type="submit" class="btn btn-success btn-xs pull-right" style="margin-left:1%;margin-right:45%;"
                                       data-codigoagregar="<?php echo $fila['codigo'] ?>"
                                        data-nombreagregar="<?php echo $fila['nombre'] ?>"
-                                        data-precioagregar="<?php echo $fila['precio'] ?>">
+                                        data-precioagregar="<?php echo $fila['precio'] ?>"
+                                        data-cantidadagregar="<?php echo $cantidad ?>">
                             <a href="...php" style="text-decoration: none;color:white;"> <i class="fa fa-plus"></i></a>
                               </button></td>
                         </tr>
@@ -314,9 +320,9 @@ $venta=$mysqli->query("select MAX(idventa) AS id from ventadulce")or die($mysqli
 <script >
           $(document).ready(function(){
               $("#buscar").on('keyup',function(){ 
-                  $("#tab_content1").find("td").remove();            
+                  $("#contenido").find("td").remove();            
                           $.ajax({
-                                  url: "./codigos/busqueda.php",
+                                  url: "../codigos/busqueda.php",
                                   method:"POST",
                                   data:{ 
                                     texto:$("#buscar").val(),
@@ -326,37 +332,7 @@ $venta=$mysqli->query("select MAX(idventa) AS id from ventadulce")or die($mysqli
                                   $(div).find("td").append(respuesta);
                           });
                   });
-              /* $(".btnstatus").on('click',function(){
-                 var id=$(this).data('id');
-                 var nombre=$(this).data('nombre');
-                 
-                 $("#idorden").val(id);
-                 $("#nombrest").text(nombre) ; 
-                });
-                $("#home-tab").on('click',function(){
-                    $("#tab_content1").show();
-                    $("#tab_content2").hide();
-                    $("#tab_content3").hide();
-                    $("#tab_content4").hide();
-                });
-                $("#profile-tab").on('click',function(){
-                  $("#tab_content2").show();
-                    $("#tab_content1").hide();
-                    $("#tab_content3").hide();
-                    $("#tab_content4").hide();
-                });
-                $("#profile-tab2").on('click',function(){
-                  $("#tab_content3").show();
-                    $("#tab_content2").hide();
-                    $("#tab_content1").hide();
-                    $("#tab_content4").hide();
-                });
-                $("#profile-tab3").on('click',function(){
-                  $("#tab_content4").show();
-                    $("#tab_content2").hide();
-                    $("#tab_content3").hide();
-                    $("#tab_content1").hide();
-                });*/
+             
           });
   
 </script>
