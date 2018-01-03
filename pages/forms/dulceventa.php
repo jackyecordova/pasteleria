@@ -154,9 +154,9 @@ $venta=$mysqli->query("select MAX(idventa) AS id from ventadulce")or die($mysqli
                   <td><?php echo $fila['precio'] ?></td>
                   <td><?php  ?></td>
                   <td> <span class="label label-success"><?php  ?></span>   </td>
-                   <td> <a  class="btn btn-danger btn-xs btnEliminar" 
+                   <td> <a  class="btn btn-danger btn-xs btneliminardulce" 
                                        data-toggle="modal"
-                                       data-target="#eliminar"
+                                       data-target="#eliminardulce"
                                        data-codigoeliminar="<?php echo $fila['codigo'] ?>"
                                        data-nombreeliminar="<?php echo $fila['nombre'] ?>">
                                          <i class="fa fa-trash"></i>  </a></td>
@@ -242,26 +242,28 @@ $venta=$mysqli->query("select MAX(idventa) AS id from ventadulce")or die($mysqli
                            <th style="width:10%;">Código</th>
                            <th style="width:50%;" >Nombre</th>
                            <th style="width:10%;">Precio</th>
-                           <th  style="width:1%;">Cantidad</th>
+                          <!-- <th  style="width:1%;">Cantidad</th>-->
                            <th class="pull-right" style="width:1%;"></th>
                         </tr>
                          <?php  $consulta=$mysqli->query("select * from dulces ")or die($mysqli->error);
                       while ( $fila=mysqli_fetch_array($consulta)) { ?>
+                       
                         <tr id="contenido" name="contenido">
                                <td> <?php echo $fila['codigo'] ?></td>
                                 <td><?php echo $fila['nombre'] ?></td>
                                 <td><?php echo $fila['precio'] ?></td>
-                                <td><select style=" background: transparent;border: none;font-size: 14px;height: 30px;padding: 5px;width: 50px;">
+                              <!--  <td><select name="cantidad" id="cantidad" style=" background: transparent;border: none;font-size: 14px;height: 30px;padding: 5px;width: 50px;">
                                         <?php for ($i=1; $i <10 ; $i++) {
-                                       ?><option><?php echo $i ?></option><?php  }  ?>
-                                     </select></td>
-                            <td><button type="submit" class="btn btn-success btn-xs pull-right" style="margin-left:1%;margin-right:45%;"
-                                      data-codigoagregar="<?php echo $fila['codigo'] ?>"
-                                       data-nombreagregar="<?php echo $fila['nombre'] ?>"
+                                       ?><option value="$i"><?php echo $i ?></option><?php  }  ?>
+                                     </select></td>-->
+                                <td><button type="submit" class="btn btn-success btn-xs pull-right btnagregar" style="margin-left:1%;margin-right:45%;"
+                                        data-codigoagregar="<?php echo $fila['codigo'] ?>"
+                                        data-nombreagregar="<?php echo $fila['nombre'] ?>"
                                         data-precioagregar="<?php echo $fila['precio'] ?>"
-                                        data-cantidadagregar="<?php echo $cantidad ?>">
-                            <a href="...php" style="text-decoration: none;color:white;"> <i class="fa fa-plus"></i></a>
-                              </button></td>
+                                        data-idventaagregar="<?php echo $novent ?>">
+                                        <a  style="text-decoration: none;color:white;"> <i class="fa fa-plus"></i></a>
+                                          </button></td>
+
                         </tr>
                         <?php } ?>
                     </table>
@@ -273,8 +275,9 @@ $venta=$mysqli->query("select MAX(idventa) AS id from ventadulce")or die($mysqli
               </div>
               <!-- /.box-body -->
               <div class="box-footer"> 
-                <button type="submit" class="btn btn-success pull-right" style="margin-left:1%;margin-right:45%;"><a href="...php" style="text-decoration: none;color:white;">Agregar</a></button>
-            <button type="button" class="btn btn-default pull-right" data-dismiss="modal" >    Cancelar
+                <button type="submit" class="btn btn-success pull-right" style="margin-left:1%;margin-right:45%;">
+                        Agregar</button>
+            <button type="button" class="btn btn-default pull-right" data-dismiss="modal" style="color:red;">    Cancelar
               </button>               
               </div>
               <!-- /.box-footer -->
@@ -285,7 +288,44 @@ $venta=$mysqli->query("select MAX(idventa) AS id from ventadulce")or die($mysqli
          
           <!-- /.box -->
         </div>
-  </div> <!-- ....................................................................... -->
+  </div> <!-- ...............................................<a href="...php" style="text-decoration: none;color:white;">.</a>....................... -->
+
+ <!--.................................................... -->
+  <div id="eliminardulce" class="modal fade" role="dialog">
+    <div class="col-md-6" style="margin-left: 25%;margin-top:10%;">
+          <!-- Horizontal Form -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Desea Eliminar </h3><p id="nombreeliminar" name="nombreeliminar"></p>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form class="form-horizontal" action="../codigos/ventadulce.php" method="post">
+              <div class="box-body">
+                <div class="form-group"  style="margin-left:10%;">
+                  <input type="hidden" id="codigoeliminar" name="codigoeliminar">
+                   
+                </div>
+               
+                 
+              
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer"> 
+                <button type="submit" class="btn btn-success pull-right" style="margin-left:1%;margin-right:45%;">
+                        Agregar</button>
+            <button type="button" class="btn btn-default pull-right" data-dismiss="modal" style="color:red;">    Cancelar
+              </button>               
+              </div>
+              <!-- /.box-footer -->
+            </form>
+          </div>
+          <!-- /.box -->
+          <!-- general form elements disabled -->
+         
+          <!-- /.box -->
+        </div>
+  </div> <!-- ...............................................<a href="...php" style="text-decoration: none;color:white;">.</a>....................... -->
 
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -315,7 +355,21 @@ $venta=$mysqli->query("select MAX(idventa) AS id from ventadulce")or die($mysqli
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
 
+<script>
+  $(".btnagregar").on('click',function(){
+   var codigo=$(this).data('codigoagregar');
+   //var nombre=$(this).data('nombreagregar');
+   var precio=$(this).data('precioagregar');
+   //var cantidad=$(this).data('cantidadagregar');
+   var novent=$(this).data('idventaagregar');
+   $("#codigo").val(codigo);
+  // $("#nombre").val(nombre) ;   
+   $("#precio").val(precio) ;   
+  // $("#cantidad").val(cantidad) ;  
+   $("#idventa").val(novent) ; 
 
+ });
+</script>
 
 <script >
           $(document).ready(function(){
@@ -329,10 +383,11 @@ $venta=$mysqli->query("select MAX(idventa) AS id from ventadulce")or die($mysqli
                                   data:{ 
                                     texto:$("#buscar").val()
                                   }
-                          }).done(function(respuesta){
+                                }).done(function(respuesta){
                                   $(div).find("td").append(respuesta);
-                          });
-                  });
+                                  alert();
+                                    });
+                   });
              
           });
   
