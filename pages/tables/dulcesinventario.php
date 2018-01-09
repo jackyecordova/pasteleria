@@ -110,8 +110,13 @@
            $consulta=$mysqli->query("select * from dulces ")or die($mysqli->error);
             while ( $fila=mysqli_fetch_array($consulta)) {
                            # code...
-                       ?>
-                <tr>
+            
+                       if ($fila['existencia']<=1) {
+                         $color= "rgba(255, 2, 2, 0.54)";
+                       }else{
+                            $color="rgba(245, 245, 245)";
+                            }?>
+                <tr style="background:<?php echo $color ?>;">
                   <td><?php  echo $fila['codigo'] ?></td>
                   <td><?php echo $fila['nombre'] ?></td>
                   <td><?php echo $fila['existencia'] ?></td>

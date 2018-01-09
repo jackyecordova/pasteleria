@@ -15,20 +15,33 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="./pages/tables/dulcesinventario.php"><i class="fa fa-circle-o"></i> Dulces</a></li>
-            <li><a href="./pages/tables/pastelesinventario.php"><i class="fa fa-circle-o"></i> Pasteles</a></li>
+            <li class="active"><a href="../forms/dulceventa.php"><i class="fa fa-circle-o"></i> Dulces</a></li>
+            <li><a href="../dorms/pastelesinventario.php"><i class="fa fa-circle-o"></i> Pasteles</a></li>
           </ul>
         </li>
 
 
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>Agregar Dulce</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
-            </span>
+           <li class="active treeview">
+              <a href="#">
+                <i class="fa fa-dashboard"></i> <span>Inventario</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li class="active"><a href="../tables/dulcesinventario.php"><i class="fa fa-circle-o"></i> Dulces</a></li>
+                <li><a href="../tables/pastelesinventario.php"><i class="fa fa-circle-o"></i> Pasteles</a></li>
+            </ul>
+        </li>
+
+
+
+
+         <li>
+          <a href="../forms/agregardulce.php">
+            <i class="fa fa-pie-chart"></i> <span>Agregar Dulce</span>
           </a>
+        </li>
          
       
         <li class="treeview">
